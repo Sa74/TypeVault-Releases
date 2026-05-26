@@ -1,0 +1,57 @@
+<?xml version="1.0" standalone="yes"?>
+<!--
+  TypeVault appcast template.
+
+  Sparkle consumers (the installed TypeVault.app) fetch this file from
+  the URL configured under SUFeedURL in Info.plist (default:
+  https://sa74.github.io/TypeVault-Releases/appcast.xml).
+
+  Edit by hand per release: copy the commented <item> template
+  below, fill in placeholders, push to the release repo. See
+  docs/RELEASING.md for the full per-release runbook. Missing
+  Sparkle 2 schema fields silently disable updates, so keep the
+  template structure intact when editing.
+
+  EdDSA signatures (sparkle:edSignature) are produced by sign_update,
+  Sparkle's signing tool. See docs/RELEASING.md for the keypair
+  workflow.
+-->
+<rss version="2.0"
+     xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>TypeVault Updates</title>
+    <link>https://sa74.github.io/TypeVault-Releases/appcast.xml</link>
+    <description>Most recent changes to TypeVault.</description>
+    <language>en</language>
+
+    <!--
+      Template item — duplicate per release. Replace placeholders
+      before publishing:
+        VERSION          marketing version, e.g. 1.0.1
+        BUILD            CFBundleVersion, monotonic integer
+        DATE             RFC 822 date string
+        URL              fully-qualified DMG download URL
+        SIZE             DMG length in bytes (curl -sI | grep -i length)
+        EDSIG            base64 signature from sign_update
+        RELEASE_NOTES    raw HTML (or use a <sparkle:releaseNotesLink>)
+
+    <item>
+      <title>Version VERSION</title>
+      <sparkle:version>BUILD</sparkle:version>
+      <sparkle:shortVersionString>VERSION</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+      <pubDate>DATE</pubDate>
+      <description><![CDATA[
+        RELEASE_NOTES
+      ]]></description>
+      <enclosure
+        url="URL"
+        length="SIZE"
+        type="application/octet-stream"
+        sparkle:edSignature="EDSIG"/>
+    </item>
+    -->
+
+  </channel>
+</rss>
